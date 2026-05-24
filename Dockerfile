@@ -1,0 +1,26 @@
+# FIX: Updated from python:3.9.4-slim (EOL) to python:3.12-slim
+FROM python:3.12-slim
+
+WORKDIR /code
+
+# Install system dependencies needed by spaCy
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    python -m spacy download en_core_web_sm
+
+COPY . .
+
+ENV PYTHONUNBUFFERED=1
+
+EXPOSE 8000
+
+# FIX: removed invalid EXPOSE 8080:8000 syntax (not valid in Dockerfile)
+# FIX: removed --reload flag (only for development, not production)
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

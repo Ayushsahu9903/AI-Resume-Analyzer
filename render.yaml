@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: ai-resume-analyzer
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MONGODB_URL
+        sync: false   # set this manually in Render dashboard
+    autoDeploy: true
