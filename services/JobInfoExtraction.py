@@ -5,7 +5,7 @@ from spacy.lang.en import English
 class JobInfoExtraction:
 
     def __init__(self, skills_patterns_path, majors_patterns_path, degrees_patterns_path, jobs):
-        self.jobs = jobs[['Qualifications']]
+        self.jobs = jobs
         self.skills_patterns_path = skills_patterns_path
         self.majors_patterns_path = majors_patterns_path
         self.degrees_patterns_path = degrees_patterns_path
