@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet" href="/frontend/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span>AI</span> Resume Analyzer
+        </div>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="/docs" target="_blank">API Docs</a>
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="hero" id="dashboard">
+
+            <div class="hero-text">
+                <p class="tag">AI-POWERED RECRUITMENT</p>
+
+                <h1>
+                    Find the right
+                    <span>talent faster.</span>
+                </h1>
+
+                <p class="description">
+                    Analyze resumes, extract job requirements and
+                    discover the best candidates using AI-powered
+                    resume matching.
+                </p>
+
+                <div class="buttons">
+                    <button onclick="runMatching()" class="primary-btn">
+                        Analyze Resumes
+                    </button>
+
+                    <a href="/docs" target="_blank" class="secondary-btn">
+                        Explore API
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+
+                <div class="card-header">
+                    <span>AI Analysis</span>
+                    <span class="status">● Live</span>
+                </div>
+
+                <div class="score">
+                    <div class="circle">
+                        <span id="score">--</span>
+                    </div>
+
+                    <div>
+                        <h3>Best Match</h3>
+                        <p>Resume compatibility</p>
+                    </div>
+                </div>
+
+                <div class="progress">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <p id="status-message">
+                    Ready to analyze candidates
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="features">
+
+            <div class="feature-card">
+                <div class="icon">📄</div>
+
+                <h3>Resume Analysis</h3>
+
+                <p>
+                    Analyze candidate resumes and identify
+                    relevant information automatically.
+                </p>
+
+                <button onclick="runMatching()">
+                    Run Analysis →
+                </button>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🧠</div>
+
+                <h3>Job Extraction</h3>
+
+                <p>
+                    Extract important skills and requirements
+                    from job descriptions.
+                </p>
+
+                <button onclick="runExtraction()">
+                    Extract Insights →
+                </button>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🏆</div>
+
+                <h3>Top Candidates</h3>
+
+                <p>
+                    Find and rank the strongest candidates
+                    for your recruitment process.
+                </p>
+
+                <button onclick="loadCandidates()">
+                    View Candidates →
+                </button>
+            </div>
+
+        </section>
+
+
+        <section class="results">
+
+            <div class="section-title">
+                <p class="tag">CANDIDATE RANKING</p>
+                <h2>Top Resume Matches</h2>
+            </div>
+
+            <div id="results-container">
+
+                <div class="empty-state">
+                    <div>🔍</div>
+                    <p>
+                        Click "View Candidates" to load
+                        the best matching resumes.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>© 2026 AI Resume Analyzer</p>
+    </footer>
+
+
+    <script src="/frontend/app.js"></script>
+
+</body>
+</html>
