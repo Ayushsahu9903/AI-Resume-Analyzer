@@ -40,7 +40,7 @@ async def extraction():
     majors_patterns_path = 'Resources/data/majors.jsonl'
     skills_patterns_path = 'Resources/data/skills.jsonl'
     jobs = pd.read_csv('Resources/data/job descriptions.csv', index_col=0)
-    jobs = jobs[['Qualifications']]
+    jobs = jobs[['Job description']]
     job_extraction = JobInfoExtraction(
         skills_patterns_path, majors_patterns_path, degrees_patterns_path, jobs
     )
