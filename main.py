@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from fastapi.encoders import jsonable_encoder
 import pandas as pd
 import json
@@ -23,15 +25,11 @@ app = FastAPI(
     description="An AI-powered API to extract job info and match resumes using NLP.",
     version="1.0.0"
 )
-
+app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
 
 @app.get("/")
 async def root():
-    return {
-        "message": "✅ AI Resume Analyzer API is running.",
-        "docs": "/docs",
-        "endpoints": ["/extraction", "/matching", "/top_resumes"]
-    }
+    return FileResponse("frontend/index.html")
 
 
 @app.get("/extraction")
