@@ -17,3 +17,4 @@ sentence-transformers==2.7.0
 
 torch==2.2.2
 transformers==4.39.3
+huggingface-hub==0.22.2
